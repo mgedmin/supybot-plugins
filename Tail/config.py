@@ -53,6 +53,9 @@ Tail = conf.registerPlugin('Tail')
 conf.registerGlobalValue(Tail, 'targets',
     Targets([], """Determines what targets will be messaged with lines from the
     files being tailed."""))
+conf.registerGlobalValue(Tail, 'prepend_filename',
+    registry.Boolean(True, """Determines whether the bot will prepend the filename
+    to the tail lines announced to the channel."""))
 conf.registerGlobalValue(Tail, 'bold',
     registry.Boolean(False, """Determines whether the bot will bold the filename
     in tail lines announced to the channel."""))

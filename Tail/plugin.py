@@ -91,7 +91,10 @@ class Tail(callbacks.Plugin):
         if self.registryValue('bold'):
             filename = ircutils.bold(filename)
         notice = self.registryValue('notice')
-        payload = '%s: %s' % (filename, text)
+        if self.registryValue('prepend_filename'):
+            payload = '%s: %s' % (filename, text)
+        else:
+            payload = text
         for target in self.registryValue('targets'):
             irc.reply(payload, to=target, notice=notice, private=True)
 
