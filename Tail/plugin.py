@@ -142,8 +142,10 @@ class Tail(callbacks.Plugin):
                 irc.reply(format('%L', L))
             else:
                 irc.reply('I\'m not currently targeting anywhere.')
-        elif remove:
-            pass #XXX
+        else:
+            # XXX
+            irc.reply('Not implemented; use config plugins.Tail.targets instead')
+
     target = wrap(target, [getopts({'remove': ''}), any('something')])
 
 
